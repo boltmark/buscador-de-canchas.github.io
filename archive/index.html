@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/carousel.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@700&family=Catamaran:wght@600&family=Roboto+Mono&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	</head>
+	<body>
+        <header>
+            <div id="navigation"></div>
+        </header>
+	    <main>
+            <div style="background: #d9d9d9" class="py-1 container rounded">
+                <h5 class="text-center">Welcome to my website!</h5>
+                <p class="text-left">I'm Marcus, a third-year student studying computer science at the 
+                <a href="https://www.cs.washington.edu" target="_blank" style="text-decoration:none; color: #551a8b">
+                    Paul G. Allen School
+                </a> 
+                within the University of Washington, Seattle. </p>
+                <p>I'm passionate about learning how to build scalable solutions to real-world problems. Check out a few of my projects below! 
+                </p>
+            </div>
+            </div>
+            <div class="carousel col-sm-8 mx-auto my-auto d-block" 
+                role="group" 
+                aria-roledescription="carousel" 
+                data-carousel aria-label="Student testimonials">
+                <div class="carousel-buttons">
+                    <button
+                        class="carousel-button carousel-button_previous mx-4"
+                        aria-label="Previous slide"
+                        data-carousel-button-previous>
+                        <span class="fas fa-chevron-circle-left"></span>
+                    </button>
+                    <button
+                        class="carousel-button carousel-button_next mx-4"
+                        aria-label="Next slide"
+                        data-carousel-button-next>
+                        <span class="fas fa-chevron-circle-right"></span>
+                    </button>
+                </div>
+                <div
+                    class="slides"
+                    aria-live="polite"
+                    data-carousel-slides-container>
+                    <div
+                        class="slide"
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-hidden="true"
+                        aria-labelledby="defender project">
+
+                        <div id="defender_container" class="img-container">
+                            <img src="images/defender_back.png" class="mt-2 container-fluid rounded d-block">
+                            <div class="overlay">
+                                <img src="images/defender_gif.gif" class="col-sm-3">
+                                <img id="static" src="images/defender_static.png" class="col-sm-3">
+                                <p id="appTitle" class="text-white mt-1">Defender</p>
+                                <p class="text-white">
+                                An arcade game featuring endless mode <br> and levels in which players can unlock upgrades
+                                </p>
+                                <button type="button" class="btn btn-info" onClick="location.href='projects/defender.html'">More info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="slide"
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-hidden="true"
+                        aria-labelledby="alice">
+                        <div id="facematch_container" class="img-container">
+                            <img src="images/facematch_back.png" class="mt-2 container-fluid rounded d-block">
+                            <div class="overlay">
+                                <img id="facematchImg" src="images/facematch_static.png" class="rounded col-sm-3">
+                                <!-- <img src="images/facematch_gif.gif" class="rounded col-sm-3"> 
+                                <img id="static" src="images/facematch_static.png" class="rounded col-sm-3"> -->
+                                <p id="appTitle" class="text-white mt-1">FaceMatch</p>
+                                <p class="text-white">
+                                Provides users with celebrity lookalikes and </br> compares the "likeness" of people in gallery photos
+                                </p>
+                                <button type="button" class="btn btn-info" onClick="location.href='projects/facematch.html'">More info</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="slide"
+                        role="group"
+                        aria-roledescription="slide"
+                        aria-hidden="true">
+                        <div id="snake_container" class="img-container">
+                            <img src="images/snake_back.png" class="mt-2 container-fluid rounded d-block">
+                            <div class="overlay">
+                                <img src="images/snake_gif.gif" class="rounded col-sm-5">
+                                <img id="static" src="images/snake_static.png" class="col-sm-5">
+                                <p id="appTitle" class="text-white mt-1">Snake AI</p>
+                                <p class="text-white">
+                                Rendition of classic Snake arcade game with added </br> AI implementations to compete against players
+                                </p>
+                                <button type="button" class="btn btn-info" onClick="location.href='projects/snake.html'">More info</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	    </main>
+        <footer>
+        </footer>
+	</body>
+    <script>
+        $(function() {
+            $("#navigation").load("nav.html");
+        });
+        $(function() {
+            $("#facematch_container").hover(
+                function() {
+                    $("#facematchImg").attr("src", "images/facematch_gif.gif");
+                },
+                function() {
+                    $("#facematchImg").attr("src", "images/facematch_static.png");
+                }
+            );
+        });
+    </script>
+    <script src="./carousel.js"></script>
+</html>
+

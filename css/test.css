@@ -1,0 +1,189 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #131525;
+  color: white;
+  --navheight: 7.5vmin;
+  padding-top: var(--navheight);
+}
+
+h2 {
+  font-size: 7vmin;
+  font-weight: 600;
+  color: #e76f51;
+  margin: 0vmin 0vmin 3vmin 16vmin;
+  padding-top: 5vmin;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: var(--navheight);
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  padding: 0vmin 3vmin 3vmin 6vmin;
+  font-size: 4vmin;
+  color: #2A9D8F;
+  background-color: #131525;
+  transition: transform 0.2s;
+}
+
+.navbar_hidden {
+  transform: translateY(calc(-1 * var(--navheight)));
+}
+
+ul#navList li {
+  display: inline;
+  margin: 0vmin 4vmin 0vmin 0vmin;
+  font-size: 2.5vmin;
+}
+
+.navbar img {
+  width: 7.5vmin;
+  height: 7.5vmin;
+}
+
+li a {
+  text-decoration: none;
+  color: #2A9D8F;
+}
+
+li a:hover {
+  color: #4bbfaf;
+}
+
+.intro p#hello {
+  margin: 16vmin 0vmin 2vmin 16vmin;
+  font-size: 3vmin;
+  color: #486875;
+}
+
+.intro h1 {
+  margin: 2vmin 0vmin 2vmin 16vmin;
+  font-weight: 800;
+  font-size: 12vmin;
+  color: #F4A261;
+}
+
+.intro p#bio {
+  margin: 0vmin 5vmin 0vmin 16vmin;
+  font-size: 3vmin;
+  color: #486875;
+}
+
+.intro a {
+  text-decoration: none;
+  color: #8a00c2bb;
+}
+
+.intro a:hover {
+  color: #8a00c2ff;
+}
+
+.intro center {
+  margin: 10rem 0rem 15rem 0rem;
+}
+
+.btnup {
+  transform: rotate(180deg);
+}
+
+i {
+  color: #2A9D8F;
+  transition: transform 0.4s;
+}
+
+i:hover {
+  color: #4bbfaf;
+  cursor: pointer;
+}
+
+#aboutGrid {
+  display: grid;
+  grid-template-columns: 50% 50%;	
+  margin: 0rem 0rem 15rem 0rem;
+}
+
+#aboutGrid p {
+  margin-left: 16vmin;
+  font-size: 3vmin;
+}
+
+#headshot {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#headshot img {
+  display: block;
+  border-radius: 50%;
+  width: 35vmin; 
+}
+
+#headshot button {
+  margin-left: 7.5vmin;
+  margin-top: 4vmin;
+  transition: hover 0.5s;
+  width: 18vmin;
+  height: 8vmin;
+  font-size: 3.5vmin;
+  border-radius: 5px;
+  border: none;
+  background-color: #2A9D8F;
+}
+
+#headshot button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#headshot button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#headshot button:hover span {
+  padding-right: 25px;
+}
+
+#headshot button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+#contact {
+  margin-top: 25vmin;   
+  margin-bottom: 7.5vmin;
+}
+
+#reachout {
+  font-size: 5vmin; 
+}
+
+#contactblurb {
+  font-size: 2.5vmin;
+  margin-bottom: 10vmin;
+}
+
+ul#contactList li {
+  display: inline;
+  font-size: 2.5vmin;
+  padding: 5vmin;
+  margin-right: 5vmin;
+}
+
+footer {
+  margin-top: 25vmin;
+  margin-bottom: 5vmin;
+  font-size: 2vmin;
+  color: #486875;
+}
