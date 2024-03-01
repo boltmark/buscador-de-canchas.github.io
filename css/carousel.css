@@ -87,7 +87,7 @@
 
 #defender_container .overlay p {
   position: absolute;
-  top: 48%;
+  top: 54%;
   left: 38.25%;
   font-size: 1.25vmax;
 }
@@ -107,7 +107,7 @@
 
 #facematch_container .overlay p {
   position: absolute;
-  top: 31%;
+  top: 39%;
   left: 38.25%;
   font-size: 1.25vmax;
 }
@@ -127,7 +127,7 @@
 
 #snake_container .overlay p {
   position: absolute;
-  top: 32%;
+  top: 40%;
   left: 53.25%;
   font-size: 1.25vmax;
 }
