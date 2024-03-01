@@ -1,6 +1,6 @@
 body {
   font-family: 'Cairo', sans-serif;
-  background-color: #131525;
+  background-color: #f9f9f9;
   color: white;
   --navheight: 8.5vmin;
   padding-top: var(--navheight);
@@ -9,7 +9,7 @@ body {
 h2 {
   font-size: 7vmin;
   font-weight: 600;
-  color: #e76f51;
+  color: #585858;
   margin: 0vmin 0vmin 3vmin 16vmin;
   padding-top: 5vmin;
 }
@@ -25,8 +25,8 @@ h2 {
   left: 0;
   padding: 0vmin 3vmin 3vmin 6vmin;
   font-size: 4vmin;
-  color: #2A9D8F;
-  background-color: #131525;
+  color: #585858;
+  background-color: #f9f9f9;
   transition: transform 0.2s;
 }
 
@@ -56,34 +56,35 @@ ul#navList li {
 
 li a {
   text-decoration: none;
-  color: #2A9D8F;
+  color: #585858;
 }
 
 li a:hover {
-  color: #4bbfaf;
+  color: #585858aa;
 }
 
 .intro p#hello {
   margin: 16vmin 0vmin 2vmin 16vmin;
   font-size: 3vmin;
-  color: #486875;
+  color: #585858cc;
 }
 
 .intro h1 {
   margin: 2vmin 0vmin 2vmin 16vmin;
   font-weight: 800;
   font-size: 12vmin;
-  color: #cbf3f0cc;
+  color: #585858;
 }
 
 .intro p#bio {
   margin: 0vmin 5vmin 0vmin 16vmin;
   font-size: 3vmin;
-  color: #486875;
+  color: #585858cc;
 }
 
 .intro a {
   /*text-decoration: none;*/
+  background-color: 585858
 }
 
 .intro a#uw {
@@ -129,6 +130,7 @@ i:hover {
 #aboutGrid p {
   margin-left: 16vmin;
   font-size: 3vmin;
+  color: #585858
 }
 
 #headshot {
@@ -160,7 +162,7 @@ i:hover {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 #headshot button span:after {
@@ -184,15 +186,18 @@ i:hover {
 #contact {
   margin-top: 25vmin;   
   margin-bottom: 20vmin;
+  color: #585858
 }
 
 #reachout {
   font-size: 5vmin; 
+  color: #585858;
 }
 
 #contactblurb {
   font-size: 2.5vmin;
   margin-bottom: 10vmin;
+  color: #585858;
 }
 
 ul#contactList li {
@@ -206,5 +211,5 @@ footer {
   margin-top: 30vmin;
   margin-bottom: 5vmin;
   font-size: 2vmin;
-  color: #486875;
+  color: #585858;
 }
