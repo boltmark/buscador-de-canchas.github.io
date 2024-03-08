@@ -147,9 +147,9 @@ i:hover {
 
 #headshot button {
   margin-left: 7.5vmin;
-  margin-top: 4vmin;
+  margin-top: 17.5vmin;
   transition: hover 0.5s;
-  width: 18vmin;
+  width: 45vmin;
   height: 8vmin;
   font-size: 3.5vmin;
   border-radius: 5px;
@@ -175,7 +175,7 @@ i:hover {
 }
 
 #headshot button:hover span {
-  padding-right: 25px;
+  padding-right: 40px;
 }
 
 #headshot button:hover span:after {
