@@ -50,14 +50,14 @@
         }
         button {
             padding: 10px 20px;
-            background-color: #3498db;
+            background-color: #004879;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s;
-            margin: 0 5px;
+            margin: 10px 5px;
         }
         button:hover {
             background-color: #2980b9;
@@ -118,7 +118,7 @@
     </style>
 </head>
 <body>
-    <h1>Tennis Court Availability Finder</h1>
+    <h1>Seattle unreserved courts</h1>
     
     <div class="search-container">
         <div class="filter-row">
@@ -143,9 +143,9 @@
     
     <script>
         // Variable to store the court data
-        let courtData = [];
+        let courtList = [];
         let lastUpdatedElmt = HTMLDivElement;
-        
+
         // Function to load court data from the external JSON file
         async function loadCourtData() {
             try {
@@ -159,35 +159,18 @@
                 if (!response.ok) {
                     throw new Error(`Failed to load court data: ${response.status} ${response.statusText}`);
                 }
-
-                // Get the Last-Modified header
-                const lastModified = response.headers.get('Last-Modified');
-
-                // Convert to Date object
-                const lastUpdatedTime = new Date(lastModified);
-
-                // Convert to PST (Pacific Standard Time)
-                const options = {
-                    timeZone: 'America/Los_Angeles',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric',
-                    hour12: true
-                };
-
-                const pstTime = lastUpdatedTime.toLocaleString('en-US', options);
                 
                 // Parse the JSON data
-                courtData = await response.json();
+                const courtData = await response.json();
 
+                courtList = courtData["court_list"]
+
+                console.log(courtList)
 
                 // Display last updated time
                 lastUpdatedElmt = document.createElement('div');
                 lastUpdatedElmt.className = 'last-updated';
-                lastUpdatedElmt.textContent = `Data last updated: ${lastUpdatedTime}`;
+                lastUpdatedElmt.textContent = `Data last updated: ${courtData["timestamp"]}`;
                 
                 // Display all courts once data is loaded
                 showAllCourts();
@@ -257,13 +240,9 @@
             // Check each available time slot
             for (const timeRange of availableTimes) {
                 const [slotStart, slotEnd] = timeRange.split(' - ').map(t => t.trim());
-                
-                // Normalize both slot start and end time
-                const normalizedSlotStart = normalizeTime(slotStart);
-                const normalizedSlotEnd = normalizeTime(slotEnd);
 
                 // Check if the requested time range overlaps with this slot
-                if (normalizedStartTime >= normalizedSlotStart && normalizedEndTime <= normalizedSlotEnd) {
+                if (normalizedStartTime >= slotStart && normalizedEndTime <= slotEnd) {
                     return true;
                 }
             }
@@ -281,13 +260,13 @@
             resultsDiv.innerHTML = '';
             
             // Check if we have data
-            if (!courtData || courtData.length === 0) {
+            if (!courtList || courtList.length === 0) {
                 resultsDiv.innerHTML = '<p class="error">No court data available. Please try reloading the page.</p>';
                 return;
             }
             
             // Filter courts by name and time range
-            const matchingCourts = courtData.filter(court => {
+            const matchingCourts = courtList.filter(court => {
                 const nameMatch = nameFilter === '' || court.name.toLowerCase().includes(nameFilter);
                 const timeMatch = isTimeRangeAvailable(court.available_times, startTime, endTime);
                 return nameMatch && timeMatch;
@@ -307,8 +286,8 @@
             document.getElementById('startTimeInput').value = '';
             document.getElementById('endTimeInput').value = '';
             
-            if (courtData && courtData.length > 0) {
-                displayCourts(courtData, null, null);
+            if (courtList && courtList.length > 0) {
+                displayCourts(courtList, null, null);
             } else {
                 document.getElementById('results').innerHTML = '<p class="loading">Loading court data...</p>';
                 loadCourtData();
@@ -322,47 +301,64 @@
             document.getElementById('endTimeInput').value = '';
         }
 
+        // Helper to convert a time string like "13:00" to "1:00 PM"
+        function to12HourFormat(timeStr) {
+            const [hourStr, minuteStr] = timeStr.split(':');
+            let hour = parseInt(hourStr, 10);
+            const minute = parseInt(minuteStr, 10);
+            const ampm = hour >= 12 ? 'pm' : 'am';
+            hour = hour % 12;
+            if (hour === 0) hour = 12;
+            return `${hour}:${minute.toString().padStart(2, '0')}${ampm}`;
+        }
+
         // Function to display courts
         function displayCourts(courts, startTime = null, endTime = null) {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
             resultsDiv.appendChild(lastUpdatedElmt);
 
-            
             courts.forEach(court => {
                 const courtDiv = document.createElement('div');
                 courtDiv.className = 'court-result';
-                
+
                 const nameDiv = document.createElement('div');
                 nameDiv.className = 'court-name';
                 nameDiv.textContent = court.name;
                 courtDiv.appendChild(nameDiv);
-                
+
                 const timesHeader = document.createElement('p');
                 timesHeader.textContent = 'Available Times:';
                 courtDiv.appendChild(timesHeader);
-                
+
                 const timesDiv = document.createElement('div');
+                console.log(court);
                 court.available_times.forEach(time => {
                     const timeSlot = document.createElement('span');
                     timeSlot.className = 'time-slot';
-                    
+
+                    // Split the range into start and end
+                    const [slotStartRaw, slotEndRaw] = time.split(' - ').map(t => t.trim());
+
                     // Highlight time slots that match the time range query
                     if (startTime && endTime) {
-                        const [slotStart, slotEnd] = time.split(' - ').map(t => t.trim());
                         const normalizedStartTime = normalizeTime(startTime);
                         const normalizedEndTime = normalizeTime(endTime);
-                        
-                        if (normalizedStartTime <= slotEnd && normalizedEndTime >= slotStart) {
+
+                        if (normalizedStartTime >= slotStartRaw && normalizedEndTime <= slotEndRaw) {
                             timeSlot.classList.add('highlighted');
                         }
                     }
-                    
-                    timeSlot.textContent = time;
+
+                    // Convert both start and end times to 12-hour format
+                    const slotStart12 = to12HourFormat(slotStartRaw);
+                    const slotEnd12 = to12HourFormat(slotEndRaw);
+                    timeSlot.textContent = `${slotStart12} - ${slotEnd12}`;
+
                     timesDiv.appendChild(timeSlot);
                 });
                 courtDiv.appendChild(timesDiv);
-                
+
                 resultsDiv.appendChild(courtDiv);
             });
         }
