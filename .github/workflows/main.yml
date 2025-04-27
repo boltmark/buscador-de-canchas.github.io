@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Make script executable
-      run: chmod +x ./fetch-data.sh
+      run: chmod +x ~/assets/fetch-data.sh
       
     - name: Run data fetching script
-      run: ./fetch-data.sh > ~/courtfinder/court-data.json
+      run: ~/assets/fetch-data.sh > ~/courtfinder/court-data.json
