@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Court Availability Finder</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-container {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .filter-row {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .filter-label {
+            width: 100px;
+            font-weight: bold;
+        }
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            flex-grow: 1;
+            margin-right: 10px;
+            max-width: 250px;
+        }
+        .buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 0 5px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        #results {
+            margin-top: 20px;
+        }
+        .court-result {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .court-name {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .time-slot {
+            background-color: #e8f4fc;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .no-results {
+            color: #e74c3c;
+            font-style: italic;
+            text-align: center;
+        }
+        .all-courts {
+            margin-top: 30px;
+        }
+        .highlighted {
+            background-color: #fff2cc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tennis Court Availability Finder</h1>
+    
+    <div class="search-container">
+        <div class="filter-row">
+            <span class="filter-label">Court Name:</span>
+            <input type="text" id="courtNameInput" placeholder="Enter court name...">
+        </div>
+        <div class="filter-row">
+            <span class="filter-label">Time Range:</span>
+            <input type="text" id="startTimeInput" placeholder="Start time (e.g., 08:00pm)">
+            <input type="text" id="endTimeInput" placeholder="End time (e.g., 10:00pm)">
+        </div>
+        <div class="buttons">
+            <button onclick="searchCourts()">Search</button>
+            <button onclick="showAllCourts()">Show All Courts</button>
+            <button onclick="clearFilters()">Clear Filters</button>
+        </div>
+    </div>
+    
+    <div id="results"></div>
+    
+    <script>
+        // Sample JSON data
+        const courtData = [
+            {
+                "name": "Alki Playfield Tennis Court 01",
+                "available_times": [
+                    "08:30:00 - 09:00:00",
+                    "10:00:00 - 23:00:00"
+                ]
+            },
+            {
+                "name": "Alki Playfield Tennis Court 02",
+                "available_times": [
+                    "08:30:00 - 23:00:00"
+                ]
+            }
+        ];
+        
+        // Function to convert time format (handles both 12hr and 24hr formats)
+        function normalizeTime(timeStr) {
+            // Remove any whitespace
+            timeStr = timeStr.trim().toLowerCase();
+            
+            // Handle 12-hour format with am/pm
+            if (timeStr.includes('am') || timeStr.includes('pm')) {
+                const isPM = timeStr.includes('pm');
+                let hourMin = timeStr.replace(/am|pm/g, '').trim();
+                
+                if (hourMin.includes(':')) {
+                    let [hours, minutes] = hourMin.split(':').map(num => parseInt(num, 10));
+                    
+                    // Convert to 24-hour format
+                    if (isPM && hours < 12) hours += 12;
+                    if (!isPM && hours === 12) hours = 0;
+                    
+                    return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:00`;
+                } else {
+                    let hours = parseInt(hourMin, 10);
+                    
+                    // Convert to 24-hour format
+                    if (isPM && hours < 12) hours += 12;
+                    if (!isPM && hours === 12) hours = 0;
+                    
+                    return `${hours.toString().padStart(2, '0')}:00:00`;
+                }
+            }
+            
+            // If already in 24-hour format or just contains hours
+            if (timeStr.includes(':')) {
+                const parts = timeStr.split(':');
+                if (parts.length === 2) {
+                    return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}:00`;
+                } else if (parts.length === 3) {
+                    return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}:${parts[2].padStart(2, '0')}`;
+                }
+            }
+            
+            // If only hours are provided, assume 00 minutes
+            const hours = parseInt(timeStr, 10);
+            return `${hours.toString().padStart(2, '0')}:00:00`;
+        }
+        
+        // Function to check if a time range overlaps with available court times
+        function isTimeRangeAvailable(availableTimes, startTime, endTime) {
+            // If no time range filter is applied, return true
+            if (!startTime || !endTime) return true;
+            
+            const normalizedStartTime = normalizeTime(startTime);
+            const normalizedEndTime = normalizeTime(endTime);
+            
+            // Check each available time slot
+            for (const timeRange of availableTimes) {
+                const [slotStart, slotEnd] = timeRange.split(' - ').map(t => t.trim());
+                
+                // Check if the requested time range overlaps with this slot
+                if (normalizedStartTime <= slotEnd && normalizedEndTime >= slotStart) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+        
+        // Function to search for courts by name and time
+        function searchCourts() {
+            const nameFilter = document.getElementById('courtNameInput').value.trim().toLowerCase();
+            const startTime = document.getElementById('startTimeInput').value.trim();
+            const endTime = document.getElementById('endTimeInput').value.trim();
+            
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            
+            // Filter courts by name and time range
+            const matchingCourts = courtData.filter(court => {
+                const nameMatch = nameFilter === '' || court.name.toLowerCase().includes(nameFilter);
+                const timeMatch = isTimeRangeAvailable(court.available_times, startTime, endTime);
+                return nameMatch && timeMatch;
+            });
+            
+            if (matchingCourts.length === 0) {
+                resultsDiv.innerHTML = '<p class="no-results">No courts found matching your criteria.</p>';
+                return;
+            }
+            
+            displayCourts(matchingCourts, startTime, endTime);
+        }
+        
+        // Function to display all courts
+        function showAllCourts() {
+            document.getElementById('courtNameInput').value = '';
+            document.getElementById('startTimeInput').value = '';
+            document.getElementById('endTimeInput').value = '';
+            displayCourts(courtData);
+        }
+        
+        // Function to clear all filters
+        function clearFilters() {
+            document.getElementById('courtNameInput').value = '';
+            document.getElementById('startTimeInput').value = '';
+            document.getElementById('endTimeInput').value = '';
+        }
+        
+        // Function to display courts
+        function displayCourts(courts, startTime = null, endTime = null) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+            
+            courts.forEach(court => {
+                const courtDiv = document.createElement('div');
+                courtDiv.className = 'court-result';
+                
+                const nameDiv = document.createElement('div');
+                nameDiv.className = 'court-name';
+                nameDiv.textContent = court.name;
+                courtDiv.appendChild(nameDiv);
+                
+                const timesHeader = document.createElement('p');
+                timesHeader.textContent = 'Available Times:';
+                courtDiv.appendChild(timesHeader);
+                
+                const timesDiv = document.createElement('div');
+                court.available_times.forEach(time => {
+                    const timeSlot = document.createElement('span');
+                    timeSlot.className = 'time-slot';
+                    
+                    // Highlight time slots that match the time range query
+                    if (startTime && endTime) {
+                        const [slotStart, slotEnd] = time.split(' - ').map(t => t.trim());
+                        const normalizedStartTime = normalizeTime(startTime);
+                        const normalizedEndTime = normalizeTime(endTime);
+                        
+                        if (normalizedStartTime <= slotEnd && normalizedEndTime >= slotStart) {
+                            timeSlot.classList.add('highlighted');
+                        }
+                    }
+                    
+                    timeSlot.textContent = time;
+                    timesDiv.appendChild(timeSlot);
+                });
+                courtDiv.appendChild(timesDiv);
+                
+                resultsDiv.appendChild(courtDiv);
+            });
+        }
+        
+        // Event listeners for Enter key in input fields
+        document.getElementById('courtNameInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchCourts();
+            }
+        });
+        
+        document.getElementById('startTimeInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchCourts();
+            }
+        });
+        
+        document.getElementById('endTimeInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchCourts();
+            }
+        });
+        
+        // Show all courts when the page loads
+        window.onload = function() {
+            showAllCourts();
+        };
+    </script>
+</body>
+</html>
