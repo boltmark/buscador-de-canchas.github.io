@@ -236,7 +236,7 @@
                 const normalizedSlotEnd = normalizeTime(slotEnd);
 
                 // Check if the requested time range overlaps with this slot
-                if (normalizedStartTime < normalizedSlotEnd && normalizedEndTime > normalizedSlotStart) {
+                if (normalizedStartTime >= normalizedSlotStart && normalizedEndTime <= normalizedSlotEnd) {
                     return true;
                 }
             }
