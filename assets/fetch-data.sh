@@ -147,7 +147,7 @@ check_availability() {
 # === Main script ===
 
 # Define the date as today + 1 (in PST)
-DATE=$(TZ="America/Los_Angeles" date -v+1d +"%Y-%m-%d")
+DATE=$(TZ="America/Los_Angeles" date -d "+1 day" +"%Y-%m-%d")
 
 # Initialize an array to store all court availability results
 COURT_AVAILABILITIES=()
