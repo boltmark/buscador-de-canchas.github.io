@@ -1,0 +1,21 @@
+name: Fetch Tennis Court Data Daily
+
+on:
+  schedule:
+    # Runs at 11:55 PM PST (7:55 UTC) every day
+    - cron: '55 7 * * *'
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  fetch-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Make script executable
+      run: chmod +x ./fetch-data.sh
+      
+    - name: Run data fetching script
+      run: ./fetch-data.sh > courtfinder/court-data.json
