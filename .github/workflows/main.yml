@@ -18,4 +18,4 @@ jobs:
       run: chmod +x ./fetch-data.sh
       
     - name: Run data fetching script
-      run: ./fetch-data.sh > courtfinder/court-data.json
+      run: ./fetch-data.sh > ~/courtfinder/court-data.json
