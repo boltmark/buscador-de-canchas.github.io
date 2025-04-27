@@ -144,6 +144,7 @@
     <script>
         // Variable to store the court data
         let courtData = [];
+        let lastUpdatedElmt = HTMLDivElement;
         
         // Function to load court data from the external JSON file
         async function loadCourtData() {
@@ -158,9 +159,35 @@
                 if (!response.ok) {
                     throw new Error(`Failed to load court data: ${response.status} ${response.statusText}`);
                 }
+
+                // Get the Last-Modified header
+                const lastModified = response.headers.get('Last-Modified');
+
+                // Convert to Date object
+                const lastUpdatedTime = new Date(lastModified);
+
+                // Convert to PST (Pacific Standard Time)
+                const options = {
+                    timeZone: 'America/Los_Angeles',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: true
+                };
+
+                const pstTime = lastUpdatedTime.toLocaleString('en-US', options);
                 
                 // Parse the JSON data
                 courtData = await response.json();
+
+
+                // Display last updated time
+                lastUpdatedElmt = document.createElement('div');
+                lastUpdatedElmt.className = 'last-updated';
+                lastUpdatedElmt.textContent = `Data last updated: ${lastUpdatedTime}`;
                 
                 // Display all courts once data is loaded
                 showAllCourts();
@@ -281,7 +308,7 @@
             document.getElementById('endTimeInput').value = '';
             
             if (courtData && courtData.length > 0) {
-                displayCourts(courtData);
+                displayCourts(courtData, null, null);
             } else {
                 document.getElementById('results').innerHTML = '<p class="loading">Loading court data...</p>';
                 loadCourtData();
@@ -299,41 +326,8 @@
         function displayCourts(courts, startTime = null, endTime = null) {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
-            
-            // Path to your file
-            const filePath = path.resolve('court_data.json');
+            resultsDiv.appendChild(lastUpdatedElmt);
 
-            // Get file stats
-            fs.stat(filePath, (err, stats) => {
-                if (err) {
-                    console.error('Error fetching file stats:', err);
-                    return;
-                }
-
-                // Get the last modified time
-                const lastUpdatedTime = stats.mtime;
-
-                // Convert to PST (Pacific Standard Time)
-                const options = {
-                    timeZone: 'America/Los_Angeles',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric',
-                    hour12: true
-                };
-
-                const pstTime = new Date(lastUpdatedTime).toLocaleString('en-US', options);
-                console.log(`Last updated: ${pstTime}`);
-
-                // Now, update the DOM with the last updated time
-                const lastUpdated = document.createElement('div');
-                lastUpdated.className = 'last-updated';
-                lastUpdated.textContent = `Last updated: ${pstTime}`;
-                resultsDiv.appendChild(lastUpdated);
-            });
             
             courts.forEach(court => {
                 const courtDiv = document.createElement('div');
