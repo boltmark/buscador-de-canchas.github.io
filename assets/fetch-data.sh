@@ -47,20 +47,14 @@ COURT_NAMES=(
   "Laurelhurst Playfield Tennis Court 02"
   "Laurelhurst Playfield Tennis Court 03"
   "Laurelhurst Playfield Tennis Court 04"
-  "Lower Woodland Playfield Tennis Court 01"
-  "Lower Woodland Playfield Tennis Court 02"
   "Lower Woodland Playfield Tennis Court 03"
   "Lower Woodland Playfield Tennis Court 04"
   "Lower Woodland Playfield Tennis Court 05"
   "Lower Woodland Playfield Tennis Court 06"
   "Lower Woodland Playfield Tennis Court 07"
   "Lower Woodland Playfield Tennis Court 08"
-  "Lower Woodland Playfield Tennis Court 09"
-  "Lower Woodland Playfield Tennis Court 10"
   "Lower Woodland Playfield Upper Court 01"
   "Lower Woodland Playfield Upper Court 02"
-  "Lower Woodland Playfield Upper Court 03"
-  "Lower Woodland Playfield Upper Court 04"
   "Madison Park Tennis Court 01"
   "Madison Park Tennis Court 02"
   "Madrona Playground Tennis Court 01"
@@ -120,7 +114,8 @@ COURT_NAMES=(
 )
 
 COURT_IDS=(
-  1146 1147 279 280 281 282 283 284
+  1146 1147
+  279 280 281 282 283 284
   1319 1320 1315 1316 1317 1318
   1323 1324 1325 1326
   1330 1331 1332
@@ -135,8 +130,8 @@ COURT_IDS=(
   2277 2278
   777 778
   1353 1354 1355 1356
-  353 354 355 356 357 358 359 360 361 362
-  369 370 371 372
+  355 356 357 358 359 360
+  369 370
   1359 1360
   2279 2280
   1361 1362
