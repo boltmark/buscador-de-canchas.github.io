@@ -2,8 +2,8 @@ name: Fetch Tennis Court Data Daily
 
 on:
   schedule:
-    # Runs at 11:55 PM PST (7:55 UTC) every day
-    - cron: '55 7 * * *'
+    # Runs at 11:55 PM PDT (7:55 UTC) every day
+    - cron: '55 6 * * *'
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 permissions:
