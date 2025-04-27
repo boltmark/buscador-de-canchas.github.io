@@ -218,7 +218,7 @@
             const hours = parseInt(timeStr, 10);
             return `${hours.toString().padStart(2, '0')}:00:00`;
         }
-        
+
         // Function to check if a time range overlaps with available court times
         function isTimeRangeAvailable(availableTimes, startTime, endTime) {
             // If no time range filter is applied, return true
@@ -231,15 +231,19 @@
             for (const timeRange of availableTimes) {
                 const [slotStart, slotEnd] = timeRange.split(' - ').map(t => t.trim());
                 
+                // Normalize both slot start and end time
+                const normalizedSlotStart = normalizeTime(slotStart);
+                const normalizedSlotEnd = normalizeTime(slotEnd);
+
                 // Check if the requested time range overlaps with this slot
-                if (normalizedStartTime <= slotEnd && normalizedEndTime >= slotStart) {
+                if (normalizedStartTime < normalizedSlotEnd && normalizedEndTime > normalizedSlotStart) {
                     return true;
                 }
             }
             
             return false;
         }
-        
+
         // Function to search for courts by name and time
         function searchCourts() {
             const nameFilter = document.getElementById('courtNameInput').value.trim().toLowerCase();
@@ -269,7 +273,7 @@
             
             displayCourts(matchingCourts, startTime, endTime);
         }
-        
+
         // Function to display all courts
         function showAllCourts() {
             document.getElementById('courtNameInput').value = '';
@@ -283,14 +287,14 @@
                 loadCourtData();
             }
         }
-        
+    
         // Function to clear all filters
         function clearFilters() {
             document.getElementById('courtNameInput').value = '';
             document.getElementById('startTimeInput').value = '';
             document.getElementById('endTimeInput').value = '';
         }
-        
+
         // Function to display courts
         function displayCourts(courts, startTime = null, endTime = null) {
             const resultsDiv = document.getElementById('results');
