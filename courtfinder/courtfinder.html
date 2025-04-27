@@ -300,11 +300,40 @@
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
             
-            // Get the last modified date of the JSON file for the "Last Updated" info
-            const lastUpdated = document.createElement('div');
-            lastUpdated.className = 'last-updated';
-            lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
-            resultsDiv.appendChild(lastUpdated);
+            // Path to your file
+            const filePath = path.resolve('court_data.json');
+
+            // Get file stats
+            fs.stat(filePath, (err, stats) => {
+                if (err) {
+                    console.error('Error fetching file stats:', err);
+                    return;
+                }
+
+                // Get the last modified time
+                const lastUpdatedTime = stats.mtime;
+
+                // Convert to PST (Pacific Standard Time)
+                const options = {
+                    timeZone: 'America/Los_Angeles',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: true
+                };
+
+                const pstTime = new Date(lastUpdatedTime).toLocaleString('en-US', options);
+                console.log(`Last updated: ${pstTime}`);
+
+                // Now, update the DOM with the last updated time
+                const lastUpdated = document.createElement('div');
+                lastUpdated.className = 'last-updated';
+                lastUpdated.textContent = `Last updated: ${pstTime}`;
+                resultsDiv.appendChild(lastUpdated);
+            });
             
             courts.forEach(court => {
                 const courtDiv = document.createElement('div');
