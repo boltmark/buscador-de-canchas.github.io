@@ -15,7 +15,23 @@ jobs:
       uses: actions/checkout@v3
       
     - name: Make script executable
-      run: chmod +x ~/assets/fetch-data.sh
+      run: |
+        # Make sure the script exists and is executable
+        if [ -f "assets/fetch-data.sh" ]; then
+          chmod +x assets/fetch-data.sh
+        else
+          echo "Error: fetch-data.sh not found"
+          exit 1
+        fi
       
     - name: Run data fetching script
-      run: ~/assets/fetch-data.sh > ~/courtfinder/court-data.json
+      run: |
+        ./assets/fetch-data.sh > courtfinder/court_data.json
+      
+    - name: Commit and push if data changed
+      run: |
+        git config --global user.name 'GitHub Actions Bot'
+        git config --global user.email 'actions@github.com'
+        git add courtfinder/court_data.json
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update court data: $(date)"
+        git push
