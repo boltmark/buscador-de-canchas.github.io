@@ -91,11 +91,29 @@
             font-style: italic;
             text-align: center;
         }
-        .all-courts {
-            margin-top: 30px;
-        }
         .highlighted {
             background-color: #fff2cc;
+        }
+        .loading {
+            text-align: center;
+            margin: 20px;
+            font-style: italic;
+            color: #666;
+        }
+        .error {
+            color: #e74c3c;
+            padding: 15px;
+            background-color: #fceaea;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .last-updated {
+            text-align: right;
+            font-size: 12px;
+            font-style: italic;
+            color: #666;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -119,25 +137,43 @@
         </div>
     </div>
     
-    <div id="results"></div>
+    <div id="results">
+        <p class="loading">Loading court data...</p>
+    </div>
     
     <script>
-        // Sample JSON data
-        const courtData = [
-            {
-                "name": "Alki Playfield Tennis Court 01",
-                "available_times": [
-                    "08:30:00 - 09:00:00",
-                    "10:00:00 - 23:00:00"
-                ]
-            },
-            {
-                "name": "Alki Playfield Tennis Court 02",
-                "available_times": [
-                    "08:30:00 - 23:00:00"
-                ]
+        // Variable to store the court data
+        let courtData = [];
+        
+        // Function to load court data from the external JSON file
+        async function loadCourtData() {
+            try {
+                // Show loading message
+                document.getElementById('results').innerHTML = '<p class="loading">Loading court data...</p>';
+                
+                // Fetch the JSON file
+                const response = await fetch('court-data.json');
+                
+                // Check if the fetch was successful
+                if (!response.ok) {
+                    throw new Error(`Failed to load court data: ${response.status} ${response.statusText}`);
+                }
+                
+                // Parse the JSON data
+                courtData = await response.json();
+                
+                // Display all courts once data is loaded
+                showAllCourts();
+                
+            } catch (error) {
+                console.error('Error loading court data:', error);
+                document.getElementById('results').innerHTML = 
+                    `<div class="error">
+                        <p>Failed to load court data: ${error.message}</p>
+                        <p>Please try again later or contact the administrator.</p>
+                    </div>`;
             }
-        ];
+        }
         
         // Function to convert time format (handles both 12hr and 24hr formats)
         function normalizeTime(timeStr) {
@@ -213,6 +249,12 @@
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
             
+            // Check if we have data
+            if (!courtData || courtData.length === 0) {
+                resultsDiv.innerHTML = '<p class="error">No court data available. Please try reloading the page.</p>';
+                return;
+            }
+            
             // Filter courts by name and time range
             const matchingCourts = courtData.filter(court => {
                 const nameMatch = nameFilter === '' || court.name.toLowerCase().includes(nameFilter);
@@ -233,7 +275,13 @@
             document.getElementById('courtNameInput').value = '';
             document.getElementById('startTimeInput').value = '';
             document.getElementById('endTimeInput').value = '';
-            displayCourts(courtData);
+            
+            if (courtData && courtData.length > 0) {
+                displayCourts(courtData);
+            } else {
+                document.getElementById('results').innerHTML = '<p class="loading">Loading court data...</p>';
+                loadCourtData();
+            }
         }
         
         // Function to clear all filters
@@ -247,6 +295,12 @@
         function displayCourts(courts, startTime = null, endTime = null) {
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '';
+            
+            // Get the last modified date of the JSON file for the "Last Updated" info
+            const lastUpdated = document.createElement('div');
+            lastUpdated.className = 'last-updated';
+            lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
+            resultsDiv.appendChild(lastUpdated);
             
             courts.forEach(court => {
                 const courtDiv = document.createElement('div');
@@ -305,9 +359,9 @@
             }
         });
         
-        // Show all courts when the page loads
+        // Load court data when the page loads
         window.onload = function() {
-            showAllCourts();
+            loadCourtData();
         };
     </script>
 </body>
