@@ -161,8 +161,8 @@ for i in "${!COURT_IDS[@]}"; do
 done
 
 # Get current timestamp in PST
-TIMESTAMP=$(TZ="America/Los_Angeles" date +"%Y-%m-%d %H:%M:%S PST")
+DATA_PULL_TIMESTAMP=$(TZ="America/Los_Angeles" date +"%Y-%m-%d %H:%M:%S PST")
 
 # Output the full JSON with court times and timestamp
-echo "{\"court_list\": [$(IFS=,; echo "${COURT_AVAILABILITIES[*]}")], \"timestamp\": \"$TIMESTAMP\"}"
+echo "{\"court_list\": [$(IFS=,; echo "${COURT_AVAILABILITIES[*]}")], \"data_pull_timestamp\": \"$DATA_PULL_TIMESTAMP\", \"availability_date_timestamp\": \"$DATE\"}"
 

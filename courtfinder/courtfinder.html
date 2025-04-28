@@ -167,10 +167,17 @@
 
                 console.log(courtList)
 
-                // Display last updated time
+                // Display court availability date + last updated time
                 lastUpdatedElmt = document.createElement('div');
                 lastUpdatedElmt.className = 'last-updated';
-                lastUpdatedElmt.textContent = `Data last updated: ${courtData["timestamp"]}`;
+
+                const sampleTextLine = document.createElement('div');
+                sampleTextLine.textContent = `Court reservation data for: ${courtData["availability_date_timestamp"]}`;
+                lastUpdatedElmt.appendChild(sampleTextLine);
+
+                const timestampLine = document.createElement('div');
+                timestampLine.textContent = `Data last updated: ${courtData["data_pull_timestamp"]}`;
+                lastUpdatedElmt.appendChild(timestampLine);
                 
                 // Display all courts once data is loaded
                 showAllCourts();
