@@ -59,7 +59,8 @@
   "19:45:00 - 21:00:00"
 ]},{"name": "David Rodgers Park Tennis Court 01", "available_times": [
   "04:00:00 - 15:30:00",
-  "17:00:00 - 23:30:00"
+  "17:00:00 - 18:00:00",
+  "19:00:00 - 23:30:00"
 ]},{"name": "David Rodgers Park Tennis Court 02", "available_times": [
   "04:00:00 - 15:30:00",
   "19:00:00 - 23:30:00"
@@ -269,4 +270,4 @@
   "08:30:00 - 10:00:00",
   "12:00:00 - 17:00:00",
   "19:30:00 - 23:00:00"
-]}], "data_pull_timestamp": "2025-04-29 23:23:02 PST", "availability_date_timestamp": "2025-04-30"}
+]}], "data_pull_timestamp": "2025-04-29 23:47:15 PST", "availability_date_timestamp": "2025-04-30"}
