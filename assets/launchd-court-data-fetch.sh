@@ -7,10 +7,10 @@ cd /Users/marcusbolton/repos/marcus-bolton.github.io
     chmod +x assets/fetch-data.sh
     ./assets/fetch-data.sh > courtfinder/court_data.json
 
-    git pull origin --rebase
     git add courtfinder/court_data.json
     git diff --quiet && git diff --staged --quiet || {
       git commit -m "Update court data: $(date)"
+      git pull origin master --rebase -X ours
       git push
     }
   else
