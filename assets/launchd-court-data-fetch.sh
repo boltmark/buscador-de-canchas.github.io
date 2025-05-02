@@ -10,6 +10,8 @@ cd /Users/marcusbolton/repos/marcus-bolton.github.io
     git add courtfinder/court_data.json
     git diff --quiet && git diff --staged --quiet || {
       git commit -m "Update court data: $(date)"
+      ssh-add ~/.ssh/id_rsa_git2
+      eval $(ssh-agent)
       git pull origin master --rebase -X ours
       git push
     }
