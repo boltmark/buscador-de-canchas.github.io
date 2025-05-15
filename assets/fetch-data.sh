@@ -163,6 +163,9 @@ done
 # Get current timestamp in PST
 DATA_PULL_TIMESTAMP=$(TZ="America/Los_Angeles" date +"%Y-%m-%d %H:%M:%S PST")
 
+# Date of reservation data
+AVAILABILITIES_DATE=$(TZ="America/Los_Angeles" date -v+1d +"%Y-%m-%d")
+
 # Output the full JSON with court times and timestamp
-echo "{\"court_list\": [$(IFS=,; echo "${COURT_AVAILABILITIES[*]}")], \"data_pull_timestamp\": \"$DATA_PULL_TIMESTAMP\", \"availability_date_timestamp\": \"$DATE\"}"
+echo "{\"court_list\": [$(IFS=,; echo "${COURT_AVAILABILITIES[*]}")], \"data_pull_timestamp\": \"$DATA_PULL_TIMESTAMP\", \"availability_date_timestamp\": \"$AVAILABILITIES_DATE\"}"
 
