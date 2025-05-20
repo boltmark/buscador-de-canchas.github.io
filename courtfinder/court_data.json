@@ -155,7 +155,8 @@
   "08:30:00 - 17:30:00",
   "19:30:00 - 23:00:00"
 ]},{"name": "Magnolia Playfield Tennis Court 03", "available_times": [
-  "08:30:00 - 23:00:00"
+  "08:30:00 - 18:30:00",
+  "20:00:00 - 23:00:00"
 ]},{"name": "Magnolia Playfield Tennis Court 04", "available_times": [
   "08:30:00 - 18:30:00",
   "20:00:00 - 23:00:00"
@@ -174,7 +175,8 @@
 ]},{"name": "Miller Playfield Tennis Court 02", "available_times": [
   "07:00:00 - 10:00:00",
   "12:00:00 - 13:30:00",
-  "15:00:00 - 18:30:00",
+  "15:00:00 - 17:00:00",
+  "18:00:00 - 18:30:00",
   "20:00:00 - 22:00:00"
 ]},{"name": "Montlake Playfield Tennis Court 02", "available_times": [
   "04:00:00 - 15:00:00",
@@ -188,7 +190,8 @@
   "15:00:00 - 17:30:00",
   "19:30:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 01", "available_times": [
-  "08:30:00 - 23:00:00"
+  "08:30:00 - 19:00:00",
+  "21:00:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 02", "available_times": [
   "08:30:00 - 18:00:00",
   "21:00:00 - 23:00:00"
@@ -245,4 +248,4 @@
   "08:30:00 - 10:00:00",
   "12:00:00 - 15:30:00",
   "17:00:00 - 23:00:00"
-]}], "data_pull_timestamp": "2025-05-20 00:13:18 PST", "availability_date_timestamp": "2025-05-21"}
+]}], "data_pull_timestamp": "2025-05-20 10:15:48 PST", "availability_date_timestamp": "2025-05-21"}
