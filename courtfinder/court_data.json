@@ -65,7 +65,8 @@
   "14:00:00 - 17:00:00",
   "18:30:00 - 23:30:00"
 ]},{"name": "David Rodgers Park Tennis Court 02", "available_times": [
-  "04:00:00 - 23:30:00"
+  "04:00:00 - 16:30:00",
+  "18:30:00 - 23:30:00"
 ]},{"name": "Dearborn Park Tennis Court 01", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Delridge Playfield Tennis Court 02", "available_times": [
@@ -80,10 +81,11 @@
   "06:00:00 - 23:00:00"
 ]},{"name": "Gilman Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 12:00:00",
-  "14:00:00 - 15:00:00",
   "21:00:00 - 23:00:00"
 ]},{"name": "Green Lake Park West Tennis Court 01", "available_times": [
-  "00:00:00 - 00:00:00"
+  "00:00:00 - 05:30:00",
+  "06:30:00 - 17:30:00",
+  "19:00:00 - 00:00:00"
 ]},{"name": "Hiawatha Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 23:00:00"
 ]},{"name": "Hiawatha Playfield Tennis Court 02", "available_times": [
@@ -101,7 +103,8 @@
   "19:00:00 - 22:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00",
-  "19:15:00 - 21:00:00"
+  "19:15:00 - 19:30:00",
+  "20:30:00 - 21:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 02", "available_times": [
   "07:00:00 - 18:00:00",
   "19:15:00 - 21:00:00"
@@ -158,7 +161,8 @@
   "14:00:00 - 23:30:00"
 ]},{"name": "Magnolia Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 17:30:00",
-  "18:30:00 - 23:00:00"
+  "18:30:00 - 20:00:00",
+  "21:00:00 - 23:00:00"
 ]},{"name": "Magnolia Playfield Tennis Court 03", "available_times": [
   "08:30:00 - 16:00:00",
   "18:00:00 - 23:00:00"
@@ -171,7 +175,8 @@
   "21:00:00 - 22:00:00"
 ]},{"name": "Meadowbrook Playfield Tennis Court 02", "available_times": [
   "07:00:00 - 09:00:00",
-  "11:40:00 - 22:00:00"
+  "11:40:00 - 17:30:00",
+  "19:00:00 - 22:00:00"
 ]},{"name": "Meadowbrook Playfield Tennis Court 03", "available_times": [
   "07:00:00 - 09:00:00",
   "11:40:00 - 17:00:00",
@@ -222,7 +227,7 @@
   "07:00:00 - 22:00:00"
 ]},{"name": "Soundview Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 10:00:00",
-  "11:00:00 - 18:00:00",
+  "11:00:00 - 17:00:00",
   "20:00:00 - 23:00:00"
 ]},{"name": "Volunteer Park Court 01 - Upper", "available_times": [
   "06:00:00 - 07:00:00",
@@ -231,7 +236,8 @@
 ]},{"name": "Volunteer Park Court 03 - Lower", "available_times": [
   "06:00:00 - 07:30:00",
   "08:30:00 - 09:00:00",
-  "10:30:00 - 22:00:00"
+  "10:30:00 - 16:00:00",
+  "17:30:00 - 22:00:00"
 ]},{"name": "Volunteer Park Court 04 - Lower", "available_times": [
   "06:00:00 - 18:30:00",
   "20:00:00 - 22:00:00"
@@ -242,4 +248,4 @@
   "08:30:00 - 10:00:00",
   "12:00:00 - 13:00:00",
   "15:00:00 - 23:00:00"
-]}], "data_pull_timestamp": "2025-06-05 18:06:14 PST", "availability_date_timestamp": "2025-06-06"}
+]}], "data_pull_timestamp": "2025-06-05 23:58:20 PST", "availability_date_timestamp": "2025-06-06"}
