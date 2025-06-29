@@ -2,7 +2,8 @@
   "08:30:00 - 23:00:00"
 ]},{"name": "AYTC Outdoor Tennis Court 01", "available_times": [
   "07:00:00 - 09:00:00",
-  "10:30:00 - 17:45:00",
+  "10:30:00 - 16:30:00",
+  "17:30:00 - 17:45:00",
   "20:15:00 - 21:00:00"
 ]},{"name": "AYTC Outdoor Tennis Court 02", "available_times": [
   "07:00:00 - 08:30:00",
@@ -52,7 +53,8 @@
   "10:15:00 - 18:30:00",
   "19:30:00 - 21:00:00"
 ]},{"name": "David Rodgers Park Tennis Court 01", "available_times": [
-  "04:00:00 - 17:45:00",
+  "04:00:00 - 16:00:00",
+  "17:30:00 - 17:45:00",
   "20:15:00 - 23:30:00"
 ]},{"name": "David Rodgers Park Tennis Court 02", "available_times": [
   "04:00:00 - 09:00:00",
@@ -114,7 +116,7 @@
   "20:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 03", "available_times": [
   "07:00:00 - 09:30:00",
-  "12:30:00 - 16:00:00",
+  "12:30:00 - 14:00:00",
   "21:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 04", "available_times": [
   "07:00:00 - 09:00:00",
@@ -150,11 +152,13 @@
   "10:30:00 - 18:30:00",
   "20:00:00 - 21:00:00"
 ]},{"name": "Lower Woodland Playfield Upper Court 03", "available_times": [
-  "07:00:00 - 18:00:00",
+  "07:00:00 - 09:00:00",
+  "11:00:00 - 18:00:00",
   "20:30:00 - 21:00:00"
 ]},{"name": "Madison Park Tennis Court 01", "available_times": [
   "04:00:00 - 08:00:00",
-  "09:00:00 - 18:30:00",
+  "09:00:00 - 11:00:00",
+  "12:00:00 - 18:30:00",
   "19:30:00 - 23:30:00"
 ]},{"name": "Madrona Playground Tennis Court 02", "available_times": [
   "06:00:00 - 18:30:00",
@@ -169,10 +173,11 @@
   "20:30:00 - 23:00:00"
 ]},{"name": "Magnolia Playfield Tennis Court 03", "available_times": [
   "08:30:00 - 10:00:00",
-  "12:00:00 - 18:30:00",
+  "12:00:00 - 14:00:00",
+  "15:00:00 - 18:30:00",
   "20:30:00 - 23:00:00"
 ]},{"name": "Magnolia Playfield Tennis Court 04", "available_times": [
-  "08:30:00 - 18:30:00",
+  "08:30:00 - 17:30:00",
   "20:30:00 - 23:00:00"
 ]},{"name": "Meadowbrook Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 09:15:00",
@@ -202,7 +207,8 @@
   "15:00:00 - 17:00:00",
   "20:00:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 01", "available_times": [
-  "08:30:00 - 23:00:00"
+  "08:30:00 - 18:00:00",
+  "19:30:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 02", "available_times": [
   "08:30:00 - 18:00:00",
   "21:00:00 - 23:00:00"
@@ -241,7 +247,9 @@
   "08:30:00 - 18:00:00",
   "21:00:00 - 23:00:00"
 ]},{"name": "Volunteer Park Court 01 - Upper", "available_times": [
-  "06:00:00 - 17:30:00",
+  "06:00:00 - 09:00:00",
+  "10:00:00 - 15:30:00",
+  "16:30:00 - 17:30:00",
   "20:30:00 - 22:00:00"
 ]},{"name": "Volunteer Park Court 03 - Lower", "available_times": [
   "06:00:00 - 09:30:00",
@@ -262,4 +270,4 @@
   "08:30:00 - 10:00:00",
   "12:00:00 - 17:45:00",
   "20:15:00 - 23:00:00"
-]}], "data_pull_timestamp": "2025-06-29 09:52:44 PST", "availability_date_timestamp": "2025-06-30"}
+]}], "data_pull_timestamp": "2025-06-29 14:22:41 PST", "availability_date_timestamp": "2025-06-30"}
