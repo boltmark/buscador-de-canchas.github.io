@@ -59,13 +59,14 @@
   "12:00:00 - 17:00:00",
   "20:00:00 - 21:00:00"
 ]},{"name": "David Rodgers Park Tennis Court 01", "available_times": [
-  "04:00:00 - 17:30:00",
+  "05:00:00 - 17:30:00",
   "20:00:00 - 23:30:00"
 ]},{"name": "David Rodgers Park Tennis Court 02", "available_times": [
   "04:00:00 - 18:00:00",
   "20:00:00 - 23:30:00"
 ]},{"name": "Dearborn Park Tennis Court 01", "available_times": [
-  "04:00:00 - 23:30:00"
+  "04:00:00 - 18:30:00",
+  "19:30:00 - 23:30:00"
 ]},{"name": "Delridge Playfield Tennis Court 02", "available_times": [
   "08:00:00 - 10:00:00",
   "12:00:00 - 18:00:00",
@@ -106,12 +107,13 @@
   "20:00:00 - 22:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 02", "available_times": [
   "07:00:00 - 16:00:00",
-  "17:00:00 - 22:00:00"
+  "17:00:00 - 18:30:00",
+  "20:00:00 - 22:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 03", "available_times": [
   "07:00:00 - 09:00:00",
   "11:29:00 - 11:30:00",
-  "13:00:00 - 20:00:00",
-  "21:00:00 - 22:00:00"
+  "13:00:00 - 18:00:00",
+  "19:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 03", "available_times": [
   "07:00:00 - 08:30:00",
   "10:00:00 - 11:00:00",
@@ -226,7 +228,8 @@
   "19:00:00 - 22:00:00"
 ]},{"name": "Rogers Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 15:00:00",
-  "18:00:00 - 23:00:00"
+  "18:00:00 - 18:30:00",
+  "20:30:00 - 23:00:00"
 ]},{"name": "Sam Smith (I90 Lid) Park Tennis Court 01", "available_times": [
   "04:00:00 - 08:45:00",
   "12:00:00 - 16:00:00",
@@ -272,4 +275,4 @@
   "21:30:00 - 23:00:00"
 ]},{"name": "Walt Hundley Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 23:00:00"
-]}], "data_pull_timestamp": "2025-08-13 18:25:15 PST", "availability_date_timestamp": "2025-08-14"}
+]}], "data_pull_timestamp": "2025-08-13 23:58:23 PST", "availability_date_timestamp": "2025-08-14"}
