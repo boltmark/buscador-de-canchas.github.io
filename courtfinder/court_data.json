@@ -48,7 +48,9 @@
   "07:00:00 - 22:00:00"
 ]},{"name": "Jefferson Park Lid Tennis Court Lower 02", "available_times": [
   "07:00:00 - 22:00:00"
-]},{"name": "Jefferson Park Lid Tennis Court Upper 01", "available_times": []},{"name": "Laurelhurst Playfield Tennis Court 01", "available_times": [
+]},{"name": "Jefferson Park Lid Tennis Court Upper 01", "available_times": [
+  "07:00:00 - 22:00:00"
+]},{"name": "Laurelhurst Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 02", "available_times": [
   "07:00:00 - 18:00:00"
@@ -72,7 +74,9 @@
   "07:00:00 - 18:00:00"
 ]},{"name": "Lower Woodland Playfield Upper Court 03", "available_times": [
   "07:00:00 - 18:00:00"
-]},{"name": "Madison Park Tennis Court 01", "available_times": []},{"name": "Madrona Playground Tennis Court 02", "available_times": [
+]},{"name": "Madison Park Tennis Court 01", "available_times": [
+  "07:00:00 - 18:00:00"
+]},{"name": "Madrona Playground Tennis Court 02", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Magnolia Park Tennis Court 02", "available_times": [
   "04:00:00 - 23:30:00"
@@ -122,7 +126,9 @@
   "07:00:00 - 22:00:00"
 ]},{"name": "Soundview Playfield Tennis Court 01", "available_times": [
   "08:00:00 - 22:00:00"
-]},{"name": "Volunteer Park Court 01 - Upper", "available_times": []},{"name": "Volunteer Park Court 03 - Lower", "available_times": [
+]},{"name": "Volunteer Park Court 01 - Upper", "available_times": [
+  "06:00:00 - 22:00:00"
+]},{"name": "Volunteer Park Court 03 - Lower", "available_times": [
   "06:00:00 - 22:00:00"
 ]},{"name": "Volunteer Park Court 04 - Lower", "available_times": [
   "06:00:00 - 22:00:00"
@@ -130,4 +136,4 @@
   "08:30:00 - 23:00:00"
 ]},{"name": "Walt Hundley Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 23:00:00"
-]}], "data_pull_timestamp": "2026-01-02 06:01:02 PST", "availability_date_timestamp": "2026-01-03"}
+]}], "data_pull_timestamp": "2026-01-03 10:53:50 PST", "availability_date_timestamp": "2026-01-04"}
