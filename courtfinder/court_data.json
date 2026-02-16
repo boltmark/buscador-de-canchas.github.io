@@ -104,8 +104,9 @@
 ]},{"name": "Montlake Playfield Tennis Court 02", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Mount Baker Park Tennis Court 02", "available_times": [
-  "07:00:00 - 17:00:00",
-  "19:00:00 - 22:00:00"
+  "07:00:00 - 14:00:00",
+  "15:30:00 - 18:00:00",
+  "20:00:00 - 22:00:00"
 ]},{"name": "Observatory Tennis Court 02", "available_times": [
   "08:30:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 01", "available_times": [
@@ -146,4 +147,4 @@
 ]},{"name": "Walt Hundley Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 10:00:00",
   "12:00:00 - 23:00:00"
-]}], "data_pull_timestamp": "2026-02-15 10:03:34 PST", "availability_date_timestamp": "2026-02-16"}
+]}], "data_pull_timestamp": "2026-02-15 17:20:49 PST", "availability_date_timestamp": "2026-02-16"}
