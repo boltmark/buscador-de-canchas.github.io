@@ -13,8 +13,7 @@
 ]},{"name": "AYTC Outdoor Tennis Court 06", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Beacon Hill Playfield Tennis Court 01", "available_times": [
-  "07:00:00 - 09:00:00",
-  "11:00:00 - 21:00:00"
+  "07:00:00 - 21:00:00"
 ]},{"name": "Bitter Lake Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 21:45:00"
 ]},{"name": "Bitter Lake Playfield Tennis Court 02", "available_times": [
@@ -26,21 +25,21 @@
 ]},{"name": "Bryant Playground Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "David Rodgers Park Tennis Court 01", "available_times": [
-  "04:00:00 - 17:00:00",
-  "18:30:00 - 23:30:00"
+  "04:00:00 - 23:30:00"
 ]},{"name": "David Rodgers Park Tennis Court 02", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Dearborn Park Tennis Court 01", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Delridge Playfield Tennis Court 02", "available_times": [
-  "08:00:00 - 10:00:00",
-  "12:00:00 - 23:00:00"
+  "08:00:00 - 23:00:00"
 ]},{"name": "Discovery Park Tennis Court 01", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Froula Playground Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Garfield Playfield Tennis Court 02", "available_times": []},{"name": "Gilman Playfield Tennis Court 01", "available_times": [
-  "07:00:00 - 22:00:00"
+  "07:00:00 - 10:00:00",
+  "12:00:00 - 15:00:00",
+  "16:00:00 - 22:00:00"
 ]},{"name": "Green Lake Park West Tennis Court 01", "available_times": [
   "00:00:00 - 00:00:00"
 ]},{"name": "Hiawatha Playfield Tennis Court 01", "available_times": [
@@ -49,13 +48,12 @@
   "08:30:00 - 23:00:00"
 ]},{"name": "Jefferson Park Lid Tennis Court Lower 01", "available_times": [
   "07:00:00 - 17:30:00",
-  "19:30:00 - 19:45:00"
+  "20:00:00 - 20:15:00"
 ]},{"name": "Jefferson Park Lid Tennis Court Lower 02", "available_times": [
   "07:00:00 - 17:30:00",
-  "19:30:00 - 19:45:00"
+  "20:00:00 - 20:15:00"
 ]},{"name": "Jefferson Park Lid Tennis Court Upper 01", "available_times": [
-  "07:00:00 - 18:00:00",
-  "20:00:00 - 22:00:00"
+  "07:00:00 - 22:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Laurelhurst Playfield Tennis Court 02", "available_times": [
@@ -67,16 +65,14 @@
 ]},{"name": "Lower Woodland Playfield Tennis Court 04", "available_times": [
   "07:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 05", "available_times": [
-  "07:00:00 - 17:00:00",
-  "18:00:00 - 22:00:00"
-]},{"name": "Lower Woodland Playfield Tennis Court 06", "available_times": [
   "07:00:00 - 22:00:00"
+]},{"name": "Lower Woodland Playfield Tennis Court 06", "available_times": [
+  "07:00:00 - 18:30:00",
+  "20:30:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 07", "available_times": [
-  "07:00:00 - 17:00:00",
-  "18:30:00 - 22:00:00"
+  "07:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Tennis Court 08", "available_times": [
-  "07:00:00 - 18:00:00",
-  "19:30:00 - 22:00:00"
+  "07:00:00 - 22:00:00"
 ]},{"name": "Lower Woodland Playfield Upper Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Lower Woodland Playfield Upper Court 02", "available_times": [
@@ -102,15 +98,14 @@
 ]},{"name": "Meadowbrook Playfield Tennis Court 03", "available_times": [
   "07:00:00 - 22:00:00"
 ]},{"name": "Miller Playfield Tennis Court 02", "available_times": [
-  "07:00:00 - 16:00:00",
-  "17:00:00 - 22:00:00"
+  "07:00:00 - 10:00:00",
+  "12:00:00 - 22:00:00"
 ]},{"name": "Montlake Playfield Tennis Court 02", "available_times": [
   "04:00:00 - 23:30:00"
 ]},{"name": "Mount Baker Park Tennis Court 02", "available_times": [
-  "07:00:00 - 10:00:00",
-  "12:00:00 - 22:00:00"
+  "07:00:00 - 22:00:00"
 ]},{"name": "Observatory Tennis Court 02", "available_times": [
-  "10:00:00 - 23:00:00"
+  "08:30:00 - 23:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 01", "available_times": [
   "07:00:00 - 18:00:00"
 ]},{"name": "Rainier Beach Playfield Tennis Court 02", "available_times": [
@@ -146,5 +141,6 @@
 ]},{"name": "Wallingford Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 23:00:00"
 ]},{"name": "Walt Hundley Playfield Tennis Court 01", "available_times": [
-  "08:30:00 - 23:00:00"
-]}], "data_pull_timestamp": "2026-02-18 08:46:00 PST", "availability_date_timestamp": "2026-02-19"}
+  "08:30:00 - 10:00:00",
+  "12:00:00 - 23:00:00"
+]}], "data_pull_timestamp": "2026-02-19 12:19:37 PST", "availability_date_timestamp": "2026-02-20"}
