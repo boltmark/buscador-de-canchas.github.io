@@ -219,7 +219,8 @@
   "21:00:00 - 22:00:00"
 ]},{"name": "Volunteer Park Court 03 - Lower", "available_times": [
   "06:00:00 - 07:30:00",
-  "13:00:00 - 22:00:00"
+  "13:00:00 - 17:30:00",
+  "18:30:00 - 22:00:00"
 ]},{"name": "Volunteer Park Court 04 - Lower", "available_times": [
   "06:00:00 - 09:30:00",
   "14:30:00 - 22:00:00"
@@ -230,4 +231,4 @@
   "18:30:00 - 23:00:00"
 ]},{"name": "Walt Hundley Playfield Tennis Court 01", "available_times": [
   "08:30:00 - 23:00:00"
-]}], "data_pull_timestamp": "2026-07-10 00:30:11 PST", "availability_date_timestamp": "2026-07-11"}
+]}], "data_pull_timestamp": "2026-07-10 02:12:02 PST", "availability_date_timestamp": "2026-07-11"}
